@@ -1,10 +1,22 @@
+# IDE config files
+.idea/
+.vscode/
+
+# Generated/compiled assets
+public/css/app.css
+public/js/app.js
+
+# Renewables
+node_modules/
+go.sum
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
-
+GoFast
 # Test binary, built with `go test -c`
 *.test
 

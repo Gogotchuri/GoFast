@@ -1,0 +1,28 @@
+{
+  "name": "GoFast",
+  "version": "1.0.0",
+  "description": "Go API with [Vue](https://vuejs.org/)  [SPA(Single Page Application)](https://en.wikipedia.org/wiki/Single-page_application) starter pack. To easily get up to speed and reduce an amount of work for web development projects. <br>",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gogotchuri/GoFast.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gogotchuri/GoFast/issues"
+  },
+  "homepage": "https://github.com/Gogotchuri/GoFast#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "laravel-mix": "^5.0.4",
+    "vue": "^2.6.11"
+  }
+}
