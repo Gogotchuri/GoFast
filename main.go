@@ -1,10 +1,19 @@
 package main
 
 import (
+	"github.com/Gogotchuri/GoFast/routes"
 	"github.com/gofiber/fiber"
-	"github.com/jinzhu/gorm"
 )
 
 func main(){
-	return
+	app := fiber.New()
+	routes.InitializeRoutes(app)
+	err := app.Listen(8081)
+	mustPanic(err)
+}
+
+func mustPanic(err error) {
+	if err != nil {
+		panic(err)
+	}
 }

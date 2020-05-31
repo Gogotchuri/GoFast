@@ -9,6 +9,8 @@ public/js/app.js
 # Renewables
 node_modules/
 go.sum
+*.fasthttp.gz
+
 
 # Binaries for programs and plugins
 *.exe
@@ -25,3 +27,6 @@ GoFast
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Secret
+.env
