@@ -3,6 +3,14 @@ Go API with [Vue](https://vuejs.org/)
 [SPA(Single Page Application)](https://en.wikipedia.org/wiki/Single-page_application) starter pack.
 To easily get up to speed and reduce an amount of work for web development projects. <br>
 
+### Asset compilation ###
+- *npm install*
+- *npm run dev*
+- *npm run watch* (*For realtime asset compilation)
+
+### Run server ###
+- *go run ./main.go*
+
 ### Go active dependencies ###
 - [Fiber](https://docs.gofiber.io) One of the fastest, mini web framework. Used for routing and middleware registration.
 - [Gorm](https://gorm.io/) Go library for Object-Relational mapping of database.
