@@ -18,7 +18,8 @@
     "vue-progressbar": "^0.7.5",
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.11",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "websocket-extensions": ">=0.1.4"
   },
   "scripts": {
     "dev": "npm run development",
