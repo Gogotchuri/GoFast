@@ -8,7 +8,7 @@ class WebPackConf {
             "@lang": __dirname + "/resources/lang"
         };
     }
-}
+};
 
 const mix = require("laravel-mix");
 mix.extend("customConfig", new WebPackConf);

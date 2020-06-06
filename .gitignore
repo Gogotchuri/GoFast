@@ -4,13 +4,13 @@
 
 # Generated/compiled assets
 public/css/app.css
-public/js/app.js
+public/js/app.js*
 
 # Renewables
 node_modules/
 go.sum
 *.fasthttp.gz
-
+mix-manifest.json
 
 # Binaries for programs and plugins
 *.exe

@@ -2,10 +2,11 @@ package main
 
 import (
 	"github.com/Gogotchuri/GoFast/routes"
+
 	"github.com/gofiber/fiber"
 )
 
-func main(){
+func main() {
 	app := fiber.New()
 	routes.InitializeRoutes(app)
 	err := app.Listen(8081)
