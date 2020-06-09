@@ -9,14 +9,14 @@ var _ DeleterSaver = &User{}
 type User struct {
 	BaseModel
 
-	GoogleID              string `gorm:"unique_index;default:null;"`
-	FacebookID            string `gorm:"unique_index;default:null;"`
-	Password              string `gorm:"default:null;"`
-	FirstName             string `gorm:"not null"`
-	LastName              string `gorm:"not null"`
-	Email                 string `gorm:"type:varchar(100);unique_index;not null;"`
-	EmailVerifiedAt       TimestampT
-	Role                  uint `gorm:"default:1;"`
+	GoogleID        string `gorm:"unique_index;default:null;"`
+	FacebookID      string `gorm:"unique_index;default:null;"`
+	Password        string `gorm:"default:null;"`
+	FirstName       string `gorm:"not null"`
+	LastName        string `gorm:"not null"`
+	Email           string `gorm:"type:varchar(100);unique_index;not null;"`
+	EmailVerifiedAt TimestampT
+	Role            uint `gorm:"default:1;"`
 	//TODO setup relationships here
 }
 
@@ -47,7 +47,7 @@ func (u *User) Save() {
 }
 
 /*SaveUserIfDoesntExist saves user to database if emails isn't occupied*/
-func(u *User) SaveUserIfDoesntExist() {
+func (u *User) SaveUserIfDoesntExist() {
 	if existing := GetUserByEmail(u.Email); existing == nil {
 		u.Save() //Write user to database if doesn't exist
 	}
@@ -63,3 +63,12 @@ func GetUserByEmail(email string) *User {
 	return nil
 }
 
+/*CheckCredentials returns user if email-password combination exists, otherwise null*/
+func CheckCredentials(email, password string) *User {
+	u := GetUserByEmail(email)
+	// TODO: Change after adding encryption
+	if u != nil && u.Password == password {
+		return u
+	}
+	return nil
+}
