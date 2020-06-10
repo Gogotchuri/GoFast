@@ -22,20 +22,20 @@ func Seed(seeders ...func()) {
  */
 func SeedUsers() {
 	defAdmin := &models.User{
-		Password:        "admin",
-		FirstName:       "admin",
-		LastName:        "admin",
-		Email:           "admin@example.com",
-		Role:            0,
+		Password:  "admin",
+		FirstName: "admin",
+		LastName:  "admin",
+		Email:     "admin@example.com",
+		Role:      0,
 	}
 	defAdmin.SaveUserIfDoesntExist()
 
 	defUser := &models.User{
-		Password:        "user",
-		FirstName:       "user",
-		LastName:        "user",
-		Email:           "user@example.com",
-		Role:            1,
+		Password:  "user",
+		FirstName: "user",
+		LastName:  "user",
+		Email:     "user@example.com",
+		Role:      1,
 	}
 	defUser.SaveUserIfDoesntExist()
 }

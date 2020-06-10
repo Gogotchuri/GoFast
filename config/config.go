@@ -14,7 +14,7 @@ var once sync.Once
 
 /*Config parameters*/
 type Config struct {
-	Domain 	 string 		`json:"domain"`
+	Domain   string         `json:"domain"`
 	Port     int            `json:"port"`
 	Env      string         `json:"env"`
 	Pepper   string         `json:"pepper"`
