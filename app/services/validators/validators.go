@@ -6,6 +6,13 @@ type SignInRequestT struct {
 	Password string `json:"password"`
 }
 
+/*SignInRequestT defines sign in form request*/
+type SignUpRequestT struct {
+	SignInRequestT
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+}
+
 /*Validate validates sign in request*/
 func (sir *SignInRequestT) Validate() *[]string {
 	var errs []string
@@ -16,6 +23,30 @@ func (sir *SignInRequestT) Validate() *[]string {
 
 	if sir.Password == "" {
 		errs = append(errs, "Password can't be empty!")
+	}
+
+	if len(errs) == 0 {
+		return nil
+	}
+	return &errs
+}
+
+/*Validate validates sign in request*/
+func (sur *SignUpRequestT) Validate() *[]string {
+	var errs []string
+
+	// Validate email and password
+	signInErrs := sur.SignInRequestT.Validate()
+	if signInErrs != nil {
+		errs = *signInErrs
+	}
+
+	if sur.FirstName == "" {
+		errs = append(errs, "First name can't be empty!")
+	}
+
+	if sur.LastName == "" {
+		errs = append(errs, "Last name can't be empty!")
 	}
 
 	if len(errs) == 0 {

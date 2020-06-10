@@ -27,6 +27,7 @@ func initAPIRoutes(app *fiber.App) {
 func initAuthRoutes(rg *fiber.Group) {
 	//On platform authorization routes
 	rg.Post("/sign-in", auth.SignIn)
+	rg.Post("/sign-up", auth.SignUp)
 }
 
 func initStaticRoutes(app *fiber.App) {
