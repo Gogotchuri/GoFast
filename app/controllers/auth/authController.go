@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/Gogotchuri/GoFast/app/models"
+	"github.com/Gogotchuri/GoFast/app/services/hash"
 	"github.com/Gogotchuri/GoFast/app/services/validators"
 
 	"github.com/gofiber/fiber"
@@ -55,7 +56,7 @@ func SignUp(c *fiber.Ctx) {
 
 	user := models.User{
 		Email:     req.Email,
-		Password:  req.Password,
+		Password:  hash.GetPasswordHash(req.Password),
 		FirstName: req.FirstName,
 		LastName:  req.LastName,
 	}

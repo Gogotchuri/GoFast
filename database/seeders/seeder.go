@@ -22,7 +22,7 @@ func Seed(seeders ...func()) {
  */
 func SeedUsers() {
 	defAdmin := &models.User{
-		Password:  "admin",
+		Password:  "k58h4ZogdYZT1pb5YEziooRrzSy2VCs9RQ9QAL3xTKM=", // Hash for "admin"
 		FirstName: "admin",
 		LastName:  "admin",
 		Email:     "admin@example.com",
@@ -31,7 +31,7 @@ func SeedUsers() {
 	defAdmin.SaveUserIfDoesntExist()
 
 	defUser := &models.User{
-		Password:  "user",
+		Password:  "pYxYzVLmGCit32aYrak6AmU1WTsq4Mvm75vUxrtyE6A=", // Hash for "user"
 		FirstName: "user",
 		LastName:  "user",
 		Email:     "user@example.com",

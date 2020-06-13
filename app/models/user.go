@@ -1,6 +1,9 @@
 package models
 
-import "github.com/Gogotchuri/GoFast/database"
+import (
+	"github.com/Gogotchuri/GoFast/app/services/hash"
+	"github.com/Gogotchuri/GoFast/database"
+)
 
 //Default interface methods forcefully
 var _ DeleterSaver = &User{}
@@ -66,8 +69,8 @@ func GetUserByEmail(email string) *User {
 /*CheckCredentials returns user if email-password combination exists, otherwise null*/
 func CheckCredentials(email, password string) *User {
 	u := GetUserByEmail(email)
-	// TODO: Change after adding encryption
-	if u != nil && u.Password == password {
+
+	if u != nil && hash.IsPasswordValid(password, u.Password) {
 		return u
 	}
 	return nil
