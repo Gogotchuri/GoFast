@@ -28,6 +28,7 @@ func initAuthRoutes(rg *fiber.Group) {
 	//On platform authorization routes
 	rg.Post("/sign-in", auth.SignIn)
 	rg.Post("/sign-up", auth.SignUp)
+	// rg.Post("/send-code", auth.SendVerificationMail) // Uncomment for email verification testing
 }
 
 func initStaticRoutes(app *fiber.App) {

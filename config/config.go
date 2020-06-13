@@ -14,12 +14,14 @@ var once sync.Once
 
 /*Config parameters*/
 type Config struct {
-	Domain   string         `json:"domain"`
-	Port     int            `json:"port"`
-	Env      string         `json:"env"`
-	Pepper   string         `json:"pepper"`
-	HMACKey  string         `json:"hmac_key"`
-	Database PostgresConfig `json:"database"`
+	Domain    string         `json:"domain"`
+	Port      int            `json:"port"`
+	Env       string         `json:"env"`
+	Pepper    string         `json:"pepper"`
+	Serv_mail string         `json:"service_email"`
+	Serv_pass string         `json:"service_password"`
+	HMACKey   string         `json:"hmac_key"`
+	Database  PostgresConfig `json:"database"`
 }
 
 /*PostgresConfig parameters*/

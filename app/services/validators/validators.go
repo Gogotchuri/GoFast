@@ -1,5 +1,10 @@
 package validators
 
+/*VerificationRequestT defines verification code request*/
+type VerificationRequestT struct {
+	Email string `json:"email"`
+}
+
 /*SignInRequestT defines sign in form request*/
 type SignInRequestT struct {
 	Email    string `json:"email"`
@@ -11,6 +16,20 @@ type SignUpRequestT struct {
 	SignInRequestT
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
+}
+
+/*Validate validates verification request*/
+func (vr *VerificationRequestT) Validate() *[]string {
+	var errs []string
+
+	if vr.Email == "" {
+		errs = append(errs, "Email can't be empty!")
+	}
+
+	if len(errs) == 0 {
+		return nil
+	}
+	return &errs
 }
 
 /*Validate validates sign in request*/

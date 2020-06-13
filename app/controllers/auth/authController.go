@@ -5,6 +5,7 @@ import (
 
 	"github.com/Gogotchuri/GoFast/app/models"
 	"github.com/Gogotchuri/GoFast/app/services/hash"
+	"github.com/Gogotchuri/GoFast/app/services/misc"
 	"github.com/Gogotchuri/GoFast/app/services/validators"
 
 	"github.com/gofiber/fiber"
@@ -63,4 +64,29 @@ func SignUp(c *fiber.Ctx) {
 	user.Save()
 
 	c.Status(http.StatusCreated).JSON(user)
+}
+
+/*SendVerificationMail Generates random code and sends to passed email*/
+func SendVerificationMail(c *fiber.Ctx) {
+	var req validators.VerificationRequestT
+	// Parse input
+	if err := c.BodyParser(&req); err != nil {
+		c.Status(http.StatusUnprocessableEntity).JSON("Request parsing failed!")
+		return
+	}
+
+	// Check for invalid input
+	if errs := req.Validate(); errs != nil {
+		c.Status(http.StatusUnauthorized).JSON(fiber.Map{"errors": *errs})
+		return
+	}
+
+	code := misc.RandCode()
+
+	err := misc.SendMail(req.Email, "Your verification code is: "+code, "GoFast email verfication")
+	if err != "" {
+		// TODO: What status should we use here?
+		c.Status(http.StatusInternalServerError).JSON(err)
+	}
+	c.Status(http.StatusCreated).JSON(code)
 }
