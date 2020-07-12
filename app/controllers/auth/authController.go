@@ -106,9 +106,7 @@ func SendVerificationMail(c *fiber.Ctx) {
 		c.Status(http.StatusInternalServerError).JSON(err)
 	}
 
-	if err := misc.SendMail(req.Email, "Your verification code is: "+code, "GoFast email verfication"); err != "" {
-		// TODO: What status should we use here?
-		c.Status(http.StatusInternalServerError).JSON(err)
-	}
+	go misc.SendMail(req.Email, "Your verification code is: "+code, "GoFast email verfication")
+
 	c.Status(http.StatusCreated).JSON(code)
 }
