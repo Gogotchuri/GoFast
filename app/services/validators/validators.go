@@ -16,6 +16,7 @@ type SignUpRequestT struct {
 	SignInRequestT
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
+	OTAC      string `json:"otac"`
 }
 
 /*Validate validates verification request*/
@@ -66,6 +67,10 @@ func (sur *SignUpRequestT) Validate() *[]string {
 
 	if sur.LastName == "" {
 		errs = append(errs, "Last name can't be empty!")
+	}
+
+	if sur.OTAC == "" {
+		errs = append(errs, "Verification code can't be empty!")
 	}
 
 	if len(errs) == 0 {

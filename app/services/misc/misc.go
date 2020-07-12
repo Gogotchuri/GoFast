@@ -22,21 +22,22 @@ func RandCode() string {
 }
 
 func SendMail(recipient, msg, subject string) string {
+	conf := config.GetInstance()
 	msg = "To: " + recipient + "\r\n" +
 		"Subject: " + subject + "\r\n" +
 		"\r\n" + msg + "\r\n"
 	// Set up authentication information.
 	auth := smtp.PlainAuth(
 		"",
-		config.GetInstance().Serv_mail,
-		config.GetInstance().Serv_pass,
+		conf.ServMail,
+		conf.ServPass,
 		"smtp.gmail.com",
 	)
 	// Send the email.
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
 		auth,
-		config.GetInstance().Serv_mail,
+		conf.ServMail,
 		[]string{recipient},
 		[]byte(msg),
 	)
