@@ -1,6 +1,8 @@
 package models
 
-import "github.com/Gogotchuri/GoFast/database"
+import (
+	"github.com/Gogotchuri/GoFast/database"
+)
 
 //Default interface methods forcefully
 var _ DeleterSaver = &User{}
