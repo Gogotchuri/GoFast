@@ -35,11 +35,6 @@ func initAuthRoutes(rg *fiber.Group) {
 	//On platform authorization routes
 	rg.Post("/sign-in", auth.SignIn)
 	rg.Post("/sign-up", auth.SignUp)
-<<<<<<< HEAD
-	rg.Post("/resend-code", auth.ReSendVerificationMail)
-	rg.Post("/verify-email", auth.VerifyEmail)
-=======
-	// rg.Post("/send-code", auth.SendVerificationMail) // Uncomment for email verification testing
 	rg.Post("/token/refresh", auth.RefreshJWTTokens)
 }
 
@@ -48,7 +43,8 @@ func initUserRoutes(rg *fiber.Group) {
 	//Only authorized users will be able to enter router under this group
 	userGroup.Use(middleware.IsAuthorized())
 	userGroup.Get("/details", auth.GetUserDetails)
->>>>>>> c9b44ffeda8c8a1c800770408ccb13f4e1dca910
+	userGroup.Post("/resend-code", auth.ReSendVerificationMail)
+	userGroup.Post("/verify-email", auth.VerifyEmail)
 }
 
 func initStaticRoutes(app *fiber.App) {
