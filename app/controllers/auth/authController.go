@@ -115,6 +115,37 @@ func SendVerificationMail(c *fiber.Ctx) {
 	c.Status(http.StatusCreated).JSON(code)
 }
 
+/*RefreshJWTTokens refreshes access token from existing refresh token*/
+func RefreshJWTTokens(c *fiber.Ctx) {
+	fieldMap := map[string]string{}
+	if err := c.BodyParser(&fieldMap); err != nil {
+		errors.SendDefaultUnprocessable(c)
+		return
+	}
+	refreshToken := fieldMap["refresh_token"]
+	tokDetails, err := services.JWTHasValidRefreshToken(refreshToken)
+	if err != nil {
+		errors.SendErrors(c, http.StatusUnauthorized, &[]string{err.Error()})
+		return
+	}
+
+	err = tokDetails.Delete()
+	if err != nil {
+		errors.SendErrors(c, http.StatusUnauthorized, &[]string{"Unauthorized", "Refresh Token Expired"})
+		return
+	}
+	user := models.GetUserByID(tokDetails.UserID)
+	if user == nil {
+		errors.SendErrors(c, http.StatusUnauthorized, &[]string{"Unauthorized", "Not a valid user"})
+		return
+	}
+	tokensJSON := CreateTokensForUser(c, user)
+	if tokensJSON == nil {
+		return
+	}
+	_ = c.Status(http.StatusAccepted).JSON(*tokensJSON)
+}
+
 func GetUserDetails(c *fiber.Ctx) {
 	user := c.Locals("user").(*models.User)
 	c.JSON(user.ToMap())

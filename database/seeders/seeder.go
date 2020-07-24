@@ -1,6 +1,9 @@
 package seeders
 
-import "github.com/Gogotchuri/GoFast/app/models"
+import (
+	"github.com/Gogotchuri/GoFast/app/models"
+	"github.com/Gogotchuri/GoFast/app/services/hash"
+)
 
 /**
  * DefaultSeed seeds default seeders
@@ -38,4 +41,14 @@ func SeedUsers() {
 		Role:      1,
 	}
 	defUser.SaveUserIfDoesntExist()
+
+	defUser1 := &models.User{
+		Password:  hash.GetPasswordHash("user"), // Hash for "user"
+		FirstName: "user",
+		LastName:  "user",
+		Email:     "user@example.com",
+		Role:      1,
+	}
+
+	defUser1.SaveUserIfDoesntExist()
 }

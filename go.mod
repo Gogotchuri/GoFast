@@ -6,7 +6,8 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-redis/redis v6.15.8+incompatible
-	github.com/gofiber/fiber v1.10.5
+	github.com/gofiber/cors v0.2.1
+	github.com/gofiber/fiber v1.12.1
 	github.com/golang/protobuf v1.4.2 // indirect
 	github.com/google/go-cmp v0.5.0 // indirect
 	github.com/jinzhu/gorm v1.9.12
