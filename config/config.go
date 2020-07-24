@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"sync"
+	"time"
 )
 
 const configFilename = "config/.env"
@@ -22,7 +23,17 @@ type Config struct {
 	ServPass string         `json:"service_password"`
 	HMACKey  string         `json:"hmac_key"`
 	Database PostgresConfig `json:"database"`
+
 	Redis    RedisConfig    `json:"redis"`
+	JWT      JWTConfig      `json:"jwt"`
+}
+
+/*JWTConfig secrets*/
+type JWTConfig struct {
+	AccessSecret  string        `json:"access_secret"`
+	RefreshSecret string        `json:"refresh_secret"`
+	AccessExp     time.Duration `json:"access_exp"`
+	RefreshExp    time.Duration `json:"refresh_exp"`
 }
 
 /*OtacConfig parameters*/
