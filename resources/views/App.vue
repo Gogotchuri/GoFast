@@ -14,6 +14,7 @@
 <script>
   import MainNav from "@views/partials/MainNav"
   export default {
+    name: "App",
     components: {MainNav},
   };
 </script>

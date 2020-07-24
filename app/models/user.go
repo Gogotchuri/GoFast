@@ -3,6 +3,7 @@ package models
 import (
 	"github.com/Gogotchuri/GoFast/app/services/hash"
 	"github.com/Gogotchuri/GoFast/database"
+	"time"
 )
 
 //Default interface methods forcefully
@@ -18,7 +19,7 @@ type User struct {
 	FirstName       string `gorm:"not null"`
 	LastName        string `gorm:"not null"`
 	Email           string `gorm:"type:varchar(100);unique_index;not null;"`
-	EmailVerifiedAt TimestampT
+	EmailVerifiedAt time.Time
 	Role            uint `gorm:"default:1;"`
 	//TODO setup relationships here
 }
@@ -74,4 +75,16 @@ func CheckCredentials(email, password string) *User {
 		return u
 	}
 	return nil
+}
+
+/*Return map to be parsed in json response*/
+func (u *User) ToMap() *map[string]interface{} {
+	return &map[string]interface{}{
+		"id" : u.ID,
+		"first_name": u.FirstName,
+		"last_name": u.LastName,
+		"email": u.Email,
+		"email_verified": !u.EmailVerifiedAt.IsZero(),
+		"role": u.Role,
+	}
 }

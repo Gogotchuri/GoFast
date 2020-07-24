@@ -30,7 +30,6 @@
                         </button>
 <!--                        TODO:Social auth, password forgotten-->
                     </div>
-                    <social-auth-section/>
                 </div>
             </form>
         </div>
@@ -38,10 +37,8 @@
 </template>
 
 <script>
-    import SocialAuthSection from "@views/auth/SocialAuthSection";
     export default {
         name: "SignIn",
-        components: {SocialAuthSection},
         data(){
             return{
                 credentials: {
@@ -53,12 +50,13 @@
         },
         methods: {
             authenticate(){
-                this.$store.dispatch("signIn", this.credentials)
-                    .then(() => {
-                        let redirectionUrl = this.$route.query.redirect;
-                        this.$router.push({path : redirectionUrl || "/", query: this.$route.query});
-                    })
-                    .catch(() => this.error = true);
+                // this.$store.dispatch("signIn", this.credentials)
+                //     .then(() => {
+                //         let redirectionUrl = this.$route.query.redirect;
+                //         this.$router.push({path : redirectionUrl || "/", query: this.$route.query});
+                //     })
+                //     .catch(() => this.error = true);
+                window.alert("Login!");
             }
 
         },
