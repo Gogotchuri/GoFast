@@ -14,12 +14,28 @@ var once sync.Once
 
 /*Config parameters*/
 type Config struct {
-	Domain 	 string 		`json:"domain"`
+	Domain   string         `json:"domain"`
 	Port     int            `json:"port"`
 	Env      string         `json:"env"`
 	Pepper   string         `json:"pepper"`
+	ServMail string         `json:"service_email"`
+	ServPass string         `json:"service_password"`
 	HMACKey  string         `json:"hmac_key"`
 	Database PostgresConfig `json:"database"`
+	Redis    RedisConfig    `json:"redis"`
+}
+
+/*OtacConfig parameters*/
+type OtacConfig struct {
+	EntryPrefix string `json:"otac_prefix"`
+	Expires     int64  `json:"otac_expire"`
+}
+
+/*RedisConfig parameters*/
+type RedisConfig struct {
+	Host string     `json:"host"`
+	Port int        `json:"port"`
+	OTAC OtacConfig `json:"otac"` // One Time Authorization Code
 }
 
 /*PostgresConfig parameters*/

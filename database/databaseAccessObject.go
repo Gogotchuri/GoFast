@@ -2,13 +2,13 @@ package database
 
 import (
 	"fmt"
-	"github.com/Gogotchuri/GoFast/config"
 	"sync"
+
+	"github.com/Gogotchuri/GoFast/config"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
-
 
 /*Database access object*/
 var dao *gorm.DB = nil

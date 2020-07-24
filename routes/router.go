@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"github.com/Gogotchuri/GoFast/app/controllers/auth"
 	"github.com/gofiber/fiber"
 )
 
@@ -13,6 +14,7 @@ func InitializeRoutes(app *fiber.App) {
 func initAPIRoutes(app *fiber.App) {
 	apiGroup := app.Group("/api") //TODO:ratelimiters
 	//TODO: initialize other api routes here (Decomposition recommended)
+	initAuthRoutes(apiGroup)
 	//Last api route maps all unmapped routes to one handler
 	apiGroup.Get("/*", func(c *fiber.Ctx) {
 		c.Send("First api route (index).")
@@ -20,6 +22,13 @@ func initAPIRoutes(app *fiber.App) {
 	apiGroup.Post("/*", func(c *fiber.Ctx) {
 		c.Send("First api route (index).")
 	})
+}
+
+func initAuthRoutes(rg *fiber.Group) {
+	//On platform authorization routes
+	rg.Post("/sign-in", auth.SignIn)
+	rg.Post("/sign-up", auth.SignUp)
+	// rg.Post("/send-code", auth.SendVerificationMail) // Uncomment for email verification testing
 }
 
 func initStaticRoutes(app *fiber.App) {
