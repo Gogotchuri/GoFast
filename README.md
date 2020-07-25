@@ -31,5 +31,8 @@ To easily get up to speed and reduce an amount of work for web development proje
     Used for asset compilation.
 - //TODO: more to come
 
+### Contributing ###
+ For contibution guidelines make sure to visit our <a href="https://github.com/Gogotchuri/GoFast/blob/master/docs/CONTRIBUTING.md">Contributing</a> page. Any help is greatly appreciated!
+
 #### *Disclaimer* ####
  Most of the functionality isn't implemented (is just planned) and isn't guaranteed for the time.
