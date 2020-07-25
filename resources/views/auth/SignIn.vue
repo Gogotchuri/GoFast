@@ -17,6 +17,9 @@
                         <input id="password" type="password" v-model="credentials.password" required>
                     </div>
                 </div>
+                <div class="password-forgotten">
+                    <a @click="passwordForgotten">Forgot password?</a>
+                </div>
 
                 <div v-if="error">
                     <div class="error">
@@ -60,6 +63,9 @@
                         this.$router.push({path : redirectionUrl || "/", query: this.$route.query});
                     })
                     .catch(() => this.error = true);
+            },
+            passwordForgotten() {
+                this.$router.push({name: "PasswordForgotten"});
             }
 
         },
