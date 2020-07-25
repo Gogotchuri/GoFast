@@ -1,5 +1,7 @@
-import SignIn from "@views/auth/SignIn.vue";
-import SignUp from "@views/auth/SignUp.vue";
+import SignIn from "@views/auth/SignIn";
+import SignUp from "@views/auth/SignUp";
+import Logout from "@views/auth/LogOut";
+
 
 export default [
     {
@@ -11,5 +13,13 @@ export default [
         path: "/sign-up",
         name: "SignUp",
         component: SignUp
-    }
+    },
+    {
+        path: "/logout",
+        name: "Logout",
+        component: Logout,
+        meta: {
+            authRequired: true
+        }
+    },
 ];

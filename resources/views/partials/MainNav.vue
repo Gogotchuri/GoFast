@@ -4,11 +4,14 @@
             <router-link :to="{name: 'Home'}">
                 Home
             </router-link>
-            <router-link :to="{name: 'SignIn'}">
+            <router-link v-if="!isLoggedIn" :to="{name: 'SignIn'}">
                 Sign in
             </router-link>
-            <router-link :to="{name: 'SignUp'}">
+            <router-link v-if="!isLoggedIn" :to="{name: 'SignUp'}">
                 Sign up
+            </router-link>
+            <router-link v-if="isLoggedIn" :to="{name: 'Logout'}">
+                Logout
             </router-link>
         </div>
     </nav>
@@ -16,6 +19,11 @@
 
 <script>
     export default {
-        name: "MainNav"
+        name: "MainNav",
+        computed: {
+            isLoggedIn() {
+                return this.$store.getters.isAuthenticated;
+            }
+        }
     };
 </script>

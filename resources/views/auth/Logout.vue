@@ -8,7 +8,7 @@
 <script>
     import store from "@js/store";
     export default {
-        name: "Logout",
+        name: "LogOut",
         data() {
             return {
                 errors: null,
@@ -37,7 +37,6 @@
                 this.$store.dispatch("logout")
                     .catch(err => {
                         this.errors = err;
-                        console.error(err.response);
                     });
             }
         }
