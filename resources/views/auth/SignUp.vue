@@ -44,10 +44,8 @@
 </template>
 
 <script>
-    import SocialAuthSection from "@views/auth/SocialAuthSection";
     export default {
         name: "SignUp",
-        components: {SocialAuthSection},
         data(){
             return {
                 form :{

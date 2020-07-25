@@ -36,6 +36,8 @@ func initAuthRoutes(rg *fiber.Group) {
 	rg.Post("/sign-in", auth.SignIn)
 	rg.Post("/sign-up", auth.SignUp)
 	rg.Post("/token/refresh", auth.RefreshJWTTokens)
+	rg.Post("/forgot-password", auth.PasswordForgotten)
+	rg.Post("/password-reset", auth.ResetPassword)
 }
 
 func initUserRoutes(rg *fiber.Group) {

@@ -14,6 +14,46 @@ import (
 	"github.com/gofiber/fiber"
 )
 
+/*PasswordForgotten Sends verification link to passed email for resetting password*/
+func PasswordForgotten(c *fiber.Ctx) {
+	email := struct {
+		Email string `json:"email"`
+	}{}
+	if err := c.BodyParser(&email); err != nil {
+		errors.SendDefaultUnprocessable(c)
+		return
+	}
+
+	user := models.GetUserByEmail(email.Email)
+	if user == nil {
+		_ = c.JSON("") //To prevent indexing we don't return error
+		return
+	}
+	services.SendPasswordResetMail(user)
+	_ = c.JSON("")
+}
+
+/*ResetPassword Updates user's password*/
+func ResetPassword(c *fiber.Ctx) {
+	rr := struct {
+		Password string `json:"password"`
+		Token    string `json:"token"`
+	}{}
+	if err := c.BodyParser(&rr); err != nil {
+		errors.SendDefaultUnprocessable(c)
+		return
+	}
+	if rr.Password == "" || rr.Token == "" {
+		errors.SendErrors(c, http.StatusUnauthorized, &[]string{"Invalid credentials"})
+		return
+	}
+	if !services.SetNewPassword(rr.Token, rr.Password) {
+		errors.SendErrors(c, http.StatusUnauthorized, &[]string{"Reset link has expired"})
+		return
+	}
+	_ = c.JSON("Password reset ended successfully")
+}
+
 /*SignIn Signs user into their account*/
 func SignIn(c *fiber.Ctx) {
 	var req validators.SignInRequestT

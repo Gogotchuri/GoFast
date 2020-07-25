@@ -22,7 +22,7 @@ func VerifyEmail(c *fiber.Ctx) {
 		return
 	}
 
-	if services.VerifyEmail(user, req.OTAC) {
+	if services.VerifyEmailByCode(user, req.OTAC) {
 		// TODO: Wrong status?
 		c.Status(http.StatusAccepted).JSON("Verification successful")
 	} else {
@@ -30,7 +30,7 @@ func VerifyEmail(c *fiber.Ctx) {
 	}
 }
 
-/*SendVerificationMail Generates random code and sends to passed email*/
+/*ReSendVerificationMail sends verification code to passed user's email*/
 func ReSendVerificationMail(c *fiber.Ctx) {
 	user := c.Locals("user").(*models.User)
 	services.SendVerificationMail(user)
