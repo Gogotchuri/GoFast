@@ -1,7 +1,26 @@
 # GoFast #
 Go API with [Vue](https://vuejs.org/) 
 [SPA(Single Page Application)](https://en.wikipedia.org/wiki/Single-page_application) starter pack.
-To easily get up to speed and reduce an amount of work for web development projects. <br>
+To easily get up to speed and reduce an amount of work for web development projects. We try to let you avoid 
+as much boilerplate code as possible.<bR> instead of setting up structure, dependencies and basic functionality, we provide it for you, <br>
+so you can make something great and fast with less effort.
+
+**Features**:
+- Pre-set structure, for development by example.
+- Database automatic migrations.
+- Asset compilation.
+- SPA setup with state management.
+- Registration/Authorization Front to Back with JWTs.
+- Email verification.
+- Password reset.
+- Social authorization (currently with Google and Facebook)
+
+**Features to come (SOON!)**
+- Pagination service
+- Model-Controller-Route / CRUD automatic (scripted) Generation
+- Image upload
+- Frontend management
+- (Hopefully, many more...)
 
 ### Asset compilation ###
 - *npm install*
@@ -32,7 +51,7 @@ To easily get up to speed and reduce an amount of work for web development proje
 - //TODO: more to come
 
 ### Contributing ###
- For contibution guidelines make sure to visit our <a href="https://github.com/Gogotchuri/GoFast/blob/master/docs/CONTRIBUTING.md">Contributing</a> page. Any help is greatly appreciated!
+ For contribution guidelines make sure to visit our <a href="https://github.com/Gogotchuri/GoFast/blob/master/docs/CONTRIBUTING.md">Contributing</a> page. Any help is greatly appreciated!
 
 #### *Disclaimer* ####
- Most of the functionality isn't implemented (is just planned) and isn't guaranteed for the time.
+Some functionality isn't implemented (is just planned) and isn't guaranteed for the time.
