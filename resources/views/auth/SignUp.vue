@@ -37,14 +37,17 @@
                         Sign Up
                     </button>
                 </div>
+                <social-auth-section/>
             </div>
         </form>
     </div>
 </template>
 
 <script>
+    import SocialAuthSection from "@views/auth/SocialAuthSection";
     export default {
         name: "SignUp",
+        components: {SocialAuthSection},
         data(){
             return {
                 form :{
@@ -55,8 +58,8 @@
 
                 },
                 password_confirmation : "",
-                authErrors: null
-
+                authErrors: null,
+                registrationSuccess: false
             }
         },
         methods : {
