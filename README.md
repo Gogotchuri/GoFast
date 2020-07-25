@@ -16,11 +16,23 @@ so you can make something great and fast with less effort.
 - Social authorization (currently with Google and Facebook)
 
 **Features to come (SOON!)**
+- Docker support (!Important!)
 - Pagination service
 - Model-Controller-Route / CRUD automatic (scripted) Generation
 - Image upload
 - Frontend management
 - (Hopefully, many more...)
+
+### Dependency setup ###
+You will need a few things for this project to work properly.
+Firstly, make sure you have installed **Go**, **NPM**, **Redis**, **Postgres**
+
+### Before you run server ###
+Please make sure:
+ - **redis-server** is up and running.
+ - **postgresql** is up and running; you have created a new database for the server.
+ - You have coped config/.env.example to config/.env and set correct variables for your system. <br>
+ .env file has a json structure. You have to set database(required) and other parameters (optional) accordingly.
 
 ### Asset compilation ###
 - *npm install*
@@ -33,10 +45,11 @@ so you can make something great and fast with less effort.
 ### Go active dependencies ###
 - [Fiber](https://docs.gofiber.io) One of the fastest, mini web framework. Used for routing and middleware registration.
 - [Gorm](https://gorm.io/) Go library for Object-Relational mapping of database.
-- TODO: more to come
+- More to come, (for whole list, check *go.mod* file)
 
 ### Database ###
 - [PostgreSQL](https://www.postgresql.org) database.
+- [Redis](https://redis.io/) server.
 - TODO: even though currently should only support PostgreSQL, other databases will be supported in the future.
 
 ### Vue dependencies ### 
