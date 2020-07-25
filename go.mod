@@ -3,6 +3,7 @@ module github.com/Gogotchuri/GoFast
 go 1.14
 
 require (
+	github.com/danilopolani/gocialite v1.0.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-redis/redis v6.15.8+incompatible
@@ -13,12 +14,17 @@ require (
 	github.com/jinzhu/gorm v1.9.12
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/myesui/uuid v1.0.0 // indirect
+	github.com/oleiade/reflections v1.0.0 // indirect
 	github.com/onsi/ginkgo v1.10.1 // indirect
 	github.com/onsi/gomega v1.7.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/stretchr/testify v1.6.1 // indirect
 	github.com/twinj/uuid v1.0.0
+	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d // indirect
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
+	gopkg.in/danilopolani/gocialite.v1 v1.0.2
+	gopkg.in/oleiade/reflections.v1 v1.0.0 // indirect
 	gopkg.in/stretchr/testify.v1 v1.2.2 // indirect
 	gopkg.in/yaml.v2 v2.2.7 // indirect
 )

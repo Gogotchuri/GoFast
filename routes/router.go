@@ -38,6 +38,9 @@ func initAuthRoutes(rg *fiber.Group) {
 	rg.Post("/token/refresh", auth.RefreshJWTTokens)
 	rg.Post("/forgot-password", auth.PasswordForgotten)
 	rg.Post("/password-reset", auth.ResetPassword)
+	//Social authorization routes
+	rg.Get("/auth/:provider/callback", auth.CallbackHandler)
+	rg.Post("/auth/:provider", auth.RedirectHandler)
 }
 
 func initUserRoutes(rg *fiber.Group) {
@@ -47,6 +50,7 @@ func initUserRoutes(rg *fiber.Group) {
 	userGroup.Get("/details", auth.GetUserDetails)
 	userGroup.Post("/resend-code", auth.ReSendVerificationMail)
 	userGroup.Post("/verify-email", auth.VerifyEmail)
+	userGroup.Post("/logout", auth.Logout)
 }
 
 func initStaticRoutes(app *fiber.App) {

@@ -169,3 +169,14 @@ func CreateTokensForUser(c *fiber.Ctx, user *models.User) *map[string]interface{
 
 	return &tokensJSON
 }
+
+/*Logout logs out user from system*/
+func Logout(c *fiber.Ctx) {
+	//Extract token details
+	var accessTD = c.Locals("jwt").(*services.JWTAccessDetails)
+	if delErr := accessTD.Delete(); delErr != nil {
+		errors.SendUnauthorized(c)
+		return
+	}
+	c.Status(http.StatusOK).JSON("Successfully logged out")
+}

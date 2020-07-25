@@ -26,6 +26,9 @@ type Config struct {
 
 	Redis    RedisConfig    `json:"redis"`
 	JWT      JWTConfig      `json:"jwt"`
+
+	Google 	 SocialProviderConfig   `json:"google"`
+	Facebook SocialProviderConfig 	`json:"facebook"`
 }
 
 /*JWTConfig secrets*/
@@ -34,6 +37,12 @@ type JWTConfig struct {
 	RefreshSecret string        `json:"refresh_secret"`
 	AccessExp     time.Duration `json:"access_exp"`
 	RefreshExp    time.Duration `json:"refresh_exp"`
+}
+
+/*Google oauth config*/
+type SocialProviderConfig struct {
+	ClientID string `json:"client_id"`
+	ClientSecret string `json:"client_secret"`
 }
 
 /*OtacConfig parameters*/

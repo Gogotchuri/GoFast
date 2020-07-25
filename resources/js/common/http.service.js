@@ -55,9 +55,9 @@ class HttpService {
      *
      * @return Promise with either data or error
      */
-    async GET(uri, urlParams = null) {
+    async GET(uri, urlParams = null, headers = {}) {
         return new Promise((resolve, reject) => {
-            this._axios.get(uri, {params: urlParams})
+            this._axios.get(uri, {params: urlParams, headers: headers})
                 .then(value => {
                     resolve(value);
                 })
@@ -127,7 +127,7 @@ class HttpService {
             baggage = {"_method": "PUT"};
 
         return new Promise((resolve, reject) => {
-            this._axios.post(uri, baggage)
+            this._axios.put(uri, baggage)
                 .then(value => {
                     resolve(value);
                 })
@@ -152,7 +152,7 @@ class HttpService {
             baggage = {"_method": "PATCH"};
 
         return new Promise((resolve, reject) => {
-            this._axios.post(uri, baggage)
+            this._axios.patch(uri, baggage)
                 .then(value => {
                     resolve(value);
                 })
@@ -213,6 +213,11 @@ class HttpService {
             }
             progressBar.fail();
             return Promise.reject(err);
+        });
+        //Append progress bar to router
+        router.afterEach(async (to, from, next) => {
+            progressBar.start();
+            progressBar.finish();
         });
     }
 }
