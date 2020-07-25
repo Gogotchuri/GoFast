@@ -2,7 +2,7 @@ package validators
 
 /*VerificationRequestT defines verification code request*/
 type VerificationRequestT struct {
-	Email string `json:"email"`
+	OTAC string `json:"otac"`
 }
 
 /*SignInRequestT defines sign in form request*/
@@ -16,15 +16,14 @@ type SignUpRequestT struct {
 	SignInRequestT
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
-	OTAC      string `json:"otac"`
 }
 
 /*Validate validates verification request*/
 func (vr *VerificationRequestT) Validate() *[]string {
 	var errs []string
 
-	if vr.Email == "" {
-		errs = append(errs, "Email can't be empty!")
+	if vr.OTAC == "" {
+		errs = append(errs, "Verification code can't be empty!")
 	}
 
 	if len(errs) == 0 {
@@ -67,10 +66,6 @@ func (sur *SignUpRequestT) Validate() *[]string {
 
 	if sur.LastName == "" {
 		errs = append(errs, "Last name can't be empty!")
-	}
-
-	if sur.OTAC == "" {
-		errs = append(errs, "Verification code can't be empty!")
 	}
 
 	if len(errs) == 0 {

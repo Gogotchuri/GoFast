@@ -38,15 +38,15 @@ type JWTConfig struct {
 
 /*OtacConfig parameters*/
 type OtacConfig struct {
-	EntryPrefix string `json:"otac_prefix"`
-	Expires     int64  `json:"otac_expire"`
+	EntryPrefix string `json:"otac_prefix"` // Prefix of otac key(prefix+email) in redis
+	Expires     int64  `json:"otac_expire"` // Time before expiration
 }
 
 /*RedisConfig parameters*/
 type RedisConfig struct {
 	Host string     `json:"host"`
 	Port int        `json:"port"`
-	OTAC OtacConfig `json:"otac"` // One Time Authorization Code
+	OTAC OtacConfig `json:"otac"`
 }
 
 /*PostgresConfig parameters*/

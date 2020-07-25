@@ -12,7 +12,7 @@ import (
 func IsAuthorized() func(c *fiber.Ctx) {
 	return func(c *fiber.Ctx) {
 		accessDetails, err := services.JWTHasValidToken(services.JWTExtractToken(c.Get("Authorization")))
-		if err != nil || accessDetails == nil{
+		if err != nil || accessDetails == nil {
 			errors.SendUnauthorized(c)
 			return
 		}
