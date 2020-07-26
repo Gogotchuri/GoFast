@@ -14,10 +14,10 @@ so you can make something great and fast with less effort.
 - Email verification.
 - Password reset.
 - Social authorization (currently with Google and Facebook)
+- Pagination service
 
 **Features to come (SOON!)**
 - Docker support (!Important!)
-- Pagination service
 - Model-Controller-Route / CRUD automatic (scripted) Generation
 - Image upload
 - Frontend management
