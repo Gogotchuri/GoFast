@@ -2,7 +2,7 @@ import SignIn from "@views/auth/SignIn";
 import SignUp from "@views/auth/SignUp";
 import PasswordForgotten from "@views/auth/PasswordForgotten";
 import PasswordReset from "@views/auth/PasswordReset";
-import Logout from "@views/auth/LogOut";
+import Logout from "@views/auth/Logout";
 
 export default [
     {
