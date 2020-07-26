@@ -3,6 +3,7 @@ import SignUp from "@views/auth/SignUp";
 import PasswordForgotten from "@views/auth/PasswordForgotten";
 import PasswordReset from "@views/auth/PasswordReset";
 import Logout from "@views/auth/Logout";
+import EmailVerification from "@views/auth/EmailVerification";
 
 export default [
     {
@@ -32,5 +33,10 @@ export default [
         meta: {
             authRequired: true
         }
+    },
+    {
+        path: "/verify-email",
+        name: "EmailVerification",
+        component: EmailVerification
     },
 ];
